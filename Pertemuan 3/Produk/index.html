@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Black Goose Apparel | Streetwear-on-Demand</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/892/892458.png" type="image/x-icon">
+</head>
+
+<body>
+<div id="container-form-order-shirt">
+    <div class="title-form-box">
+        <h3 class="title-form">Black Goose Apparel | Streetwear-on-Demand</h3>
+    </div>
+    <div class="description-form">
+        <p class="description-text">
+            Design your custom streetwear! Pilih ukuran, warna, dan desain favoritmu. Kami akan produksi & kirim langsung ke pintu rumahmu 🚚
+        </p>
+    </div>
+
+    <div class="form-box">
+        <p>Your Information</p>
+        <form action="output.php" method="post" id="shirt-order-form">
+            <div id="name-field">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+            </div>
+
+            <div id="address-field">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required placeholder="Enter your shipping address">
+            </div>
+
+            <div id="phone-field">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+            </div>
+
+            <div id="email-field">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+
+            <div id="shirt-specs">
+                <p id="shirt-specs-title">Customize Your Shirt:</p>
+
+                <div id="size-field">
+                    <p>Size (Choose one):</p>
+                    <label><input type="radio" name="shirt-size" value="S" required> S</label>
+                    <label><input type="radio" name="shirt-size" value="M"> M</label>
+                    <label><input type="radio" name="shirt-size" value="L"> L</label>
+                    <label><input type="radio" name="shirt-size" value="XL"> XL</label>
+                </div>
+
+                <div id="color-field">
+                    <p>Color (Choose one):</p>
+                    <label><input type="radio" name="shirt-color" value="Black" required> Black</label>
+                    <label><input type="radio" name="shirt-color" value="White"> White</label>
+                    <label><input type="radio" name="shirt-color" value="Navy"> Navy</label>
+                    <label><input type="radio" name="shirt-color" value="Olive"> Olive</label>
+                </div>
+
+                <div id="design-field">
+                    <p>Design (Choose as many as you want):</p>
+                    <label><input type="checkbox" name="design[]" value="Minimal Logo"> Minimal Logo</label>
+                    <label><input type="checkbox" name="design[]" value="Street Tag"> Street Tag</label>
+                    <label><input type="checkbox" name="design[]" value="Retro Print"> Retro Print</label>
+                    <label><input type="checkbox" name="design[]" value="Custom Text"> Custom Text</label>
+                </div>
+            </div>
+
+            <div id="quantity-field">
+                <p>Quantity</p>
+                <label for="quantity">How many shirts:
+                    <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" required>
+                </label>
+            </div>
+
+            <div id="notes-field">
+                <label for="notes">Additional Notes:</label>
+                <textarea id="notes" name="notes" rows="4" cols="40" placeholder="Example: please print my name on the sleeve."></textarea>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" name="submit">Order Now</button>
+                <button type="reset" name="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
