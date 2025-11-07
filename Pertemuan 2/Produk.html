@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Sepatu Sport</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+    background-color: #f9f9f9;
+}
+
+header {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+nav a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.product-image {
+    flex: 1;
+    min-width: 250px;
+}
+
+.product-image img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.thumbnails img {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-details {
+    flex: 2;
+    min-width: 300px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.price {
+    font-size: 22px;
+    color: #d32f2f;
+    margin: 10px 0;
+}
+
+.rating {
+    color: #ffa500;
+}
+
+.variant {
+    margin: 10px 0;
+}
+
+.color-option, .size-option {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.color-option:hover, .size-option:hover {
+    background-color: #e0e0e0;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #222;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+.description {
+    margin-top: 20px;
+    line-height: 1.5;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>AStore.com</h1>
+    <nav>
+        <a href="#">Fashion Pria</a>
+        <a href="#">Fashion Wanita</a>
+        <a href="#">Sepatu</a>
+        <a href="#">Aksesoris</a>
+    </nav>
+</header>
+
+<p><a href="#">Home</a> > <a href="#">Fashion Pria</a> > <a href="#">Sepatu</a> > Sepatu Sport</p>
+
+<div class="container">
+    <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Sepatu Sport Utama">
+        <div class="thumbnails">
+            
+            <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842" alt="Sepatu Sport 2">
+            <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a" alt="Sepatu Sport 3">
+            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772" alt="Sepatu Sport 4">
+        </div>
+    </div>
+
+    <div class="product-details">
+        <h2>Sepatu Sport Premium</h2>
+        <p class="price">Rp. 350.000</p>
+        <p class="rating">★★★★★ (12 ulasan)</p>
+
+        <div class="variant">
+            <strong>Pilih Warna:</strong><br>
+            <span class="color-option">Putih</span>
+            <span class="color-option">Hitam</span>
+            <span class="color-option">Abu</span>
+            <span class="color-option">Merah</span>
+        </div>
+
+        <div class="variant">
+            <strong>Pilih Ukuran:</strong><br>
+            <span class="size-option">39</span>
+            <span class="size-option">40</span>
+            <span class="size-option">41</span>
+            <span class="size-option">42</span>
+            <span class="size-option">43</span>
+        </div>
+
+        <button>Pesan Sekarang</button>
+
+        <div class="description">
+            <h3>Deskripsi Produk</h3>
+            <p>Sepatu sport premium dengan desain modern dan nyaman dipakai. 
+            Terbuat dari bahan berkualitas tinggi yang ringan dan kuat. Cocok digunakan 
+            untuk olahraga, aktivitas luar ruangan, atau gaya kasual sehari-hari.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
