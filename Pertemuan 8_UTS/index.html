@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistem Informasi Seminar Tugas Akhir - SISTA</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<h1>Sistem Informasi Seminar Tugas Akhir - SISTA</h1>
+
+<nav>
+    <a href="#">Home</a> >
+    <a href="#">Jadwal</a> >
+    <a href="#">Detail Jadwal</a> >
+    Daftar Peserta
+</nav>
+
+<div class="info-seminar">
+    <p><strong>Mahasiswa Seminar :</strong> Diego Armando (0102002)</p>
+    <p><strong>Judul :</strong> Rancang Bangun Aplikasi Seminar Tugas Akhir Berbasis Web Menggunakan MVC Framework</p>
+    <p><strong>Waktu :</strong> Senin, 4 Januari 2021, 10:00</p>
+</div>
+
+<div class="form-container">
+    <form>
+        <h4>Form Peserta Seminar</h4>
+        <label for="nim">NIM :</label>
+        <input type="text" id="nim" name="nim"><br>
+
+        <label for="nama">Nama :</label>
+        <input type="text" id="nama" name="nama"><br>
+
+        <label for="prodi">Prodi :</label>
+        <select id="prodi" name="prodi">
+            <option>Teknik Informatika</option>
+            <option>Sistem Informasi</option>
+            <option>Bisnis Digital</option>
+        </select><br>
+
+        <label>Program :</label>
+        <div class="program">
+            <input type="radio" name="program" id="d3"> D3
+            <input type="radio" name="program" id="s1reg"> S1 Reguler
+            <input type="radio" name="program" id="s1fast"> S1 Fast Track
+            <input type="radio" name="program" id="s2"> S2
+        </div>
+
+        <button type="submit">Daftar</button>
+    </form>
+</div>
+
+</body>
+</html>
