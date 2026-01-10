@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    function hitungparkir(idMasuk, idKeluar, idLama, idBiaya) {
+        const jamMasukStr = document.getElementById(idMasuk).value;
+        const jamKeluarStr = document.getElementById(idKeluar).value;
+        
+        if (jamMasukStr === "" || jamKeluarStr === "") {
+            document.getElementById(idLama).value = "";
+            document.getElementById(idBiaya).value = "";
+            return;
+        }
+
+        const jamMasuk = parseInt(jamMasukStr);
+        const jamKeluar = parseInt(jamKeluarStr);
+
+        if (isNaN(jamMasuk) || isNaN(jamKeluar)){
+            document.getElementById(idLama).value = "Input tidak valid";
+            document.getElementById(idBiaya).value = "Input tidak valid";
+            return;
+        }
+
+        let lamaParkir;
+        if (jamKeluar >= jamMasuk){
+            lamaParkir = jamKeluar - jamMasuk;
+        }
+        else {
+            lamaParkir = (24 - jamMasuk) + jamKeluar;
+        }
+        document.getElementById(idLama).value = lamaParkir + " jam";
+
+        const biayaPerJam = 3000;
+        const biaya_per_jam_berikutnya = 1000;
+        let biayaParkir = 0;
+        if (lamaParkir <=0){
+            biayaParkir = 0;
+        }
+        else if (lamaParkir === 1){
+            biayaParkir = biaya_per_jam_berikutnya;
+        }
+        else {
+            biayaParkir = biayaPerJam; 
+            const jamTambahan = lamaParkir - 1;
+            biayaParkir += jamTambahan * biaya_per_jam_berikutnya;
+        }
+        document.getElementById(idBiaya).value = "Rp " + biayaParkir;
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("jam_masuk").addEventListener("input", function() {
+            hitungparkir("jam_masuk", "jam_keluar", "lama_parkir", "biaya_parkir");
+        });
+        document.getElementById("jam_keluar").addEventListener("input", function() {
+            hitungparkir("jam_masuk", "jam_keluar", "lama_parkir", "biaya_parkir");
+        });
+        document.getElementById("masuk").addEventListener("input", function() {
+            hitungparkir("masuk", "keluar", "lama", "biaya");
+        });
+        document.getElementById("keluar").addEventListener("input", function() {
+            hitungparkir("masuk", "keluar", "lama", "biaya");
+        });
+    });
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Parkir Mobil</legend>
+        <table>
+            <thead>
+                <th>Jam Masuk</th>
+                <th>Jam Keluar</th>
+                <th>Lama</th>
+                <th>Biaya Parkir</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="text" id="jam_masuk">
+                    </td>
+                    <td>
+                        <input type="text" id="jam_keluar">
+                    </td>
+                    <td>
+                        <input type="text" id="lama_parkir" readonly>
+                    </td>
+                    <td>
+                        <input type="text" id="biaya_parkir" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" id="masuk">
+                    </td>
+                    <td>
+                        <input type="text" id="keluar">
+                    </td>
+                    <td>
+                        <input type="text" id="lama" readonly>
+                    </td>
+                    <td>
+                        <input type="text" id="biaya" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</body>
+</html>
