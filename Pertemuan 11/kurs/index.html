@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>kurs rupiah - mata uang asing</legend>
+        <table>
+            <thead>
+                <th>Masukan Nilai</th>
+                <th>valas</th>
+                <th>nilai rupiah</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="text" id="Nilai">
+                    </td>
+                    <td>
+                        <select name="valas" id="valas">
+                            <option value="usd">USD Dollar</option>
+                            <option value="rm">Ringgit</option>
+                            <option value="jpy">Yen Japan</option>
+                            <option value="eour">euro</option>
+                            <option value="sar">Riyal saudi</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" id="rupiah" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+
+<script src="script.js"></script>
+</body>
+</html>

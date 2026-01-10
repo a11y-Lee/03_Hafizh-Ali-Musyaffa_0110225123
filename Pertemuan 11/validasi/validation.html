@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. Form Validation Sederhana</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .error-message { color: red; font-size: 0.9em; margin-left: 10px; }
+        input[type="text"], input[type="email"], input[type="number"], select {
+            padding: 8px; border: 1px solid #ccc; width: 250px;
+        }
+        /* Style untuk menandai input yang salah */
+        .input-error { border: 2px solid red !important; }
+        #hasil-validasi { 
+            margin-top: 20px; padding: 15px; 
+            border: 1px dashed green; 
+            background-color: #e6ffe6; 
+            display: none; /* Sembunyikan hasil sampai form valid */
+        }
+    </style>
+</head>
+<body>
+    <h3>Validasi Pemesanan Tiket</h3>
+    <form id="tiketForm" onsubmit="return validateForm()"> 
+
+        <div class="form-group">
+            <label for="nama">Nama Pelanggan:</label>
+            <input type="text" id="nama" name="nama">
+            <span id="error-nama" class="error-message"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <span id="error-email" class="error-message"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="jam">Jam Keberangkatan (JJ.MM):</label>
+            <input type="text" id="jam" name="jam" placeholder="Contoh: 08.30">
+            <span id="error-jam" class="error-message"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="tujuan">Tujuan Keberangkatan:</label>
+            <input type="text" id="tujuan" name="tujuan">
+            <span id="error-tujuan" class="error-message"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="tiket">Jumlah Tiket (1-10):</label>
+            <input type="number" id="tiket" name="tiket">
+            <span id="error-tiket" class="error-message"></span>
+        </div>
+
+        <button type="submit" style="padding: 10px 20px; background-color: blue; color: white; border: none; cursor: pointer;">Submit</button>
+
+    </form>
+
+    <div id="hasil-validasi">
+        <h4>Data Valid dan Berhasil Dikirim:</h4>
+        <pre id="data-output"></pre>
+    </div>
+
+    <script>
+        // Kode JavaScript untuk Form Validation
+
+        function displayError(fieldId, message) {
+            const errorElement = document.getElementById(`error-${fieldId}`);
+            const inputElement = document.getElementById(fieldId);
+            
+            errorElement.textContent = message;
+            if (message) {
+                inputElement.classList.add('input-error');
+            } else {
+                inputElement.classList.remove('input-error');
+            }
+        }
+
+        function validateForm() {
+            let isValid = true;
+            const form = document.getElementById('tiketForm');
+            
+            // Sembunyikan hasil validasi sebelumnya
+            document.getElementById('hasil-validasi').style.display = 'none';
+
+            // --- 1. Validasi Nama Pelanggan ---
+            const nama = form.nama.value.trim();
+            if (nama === "") {
+                displayError('nama', 'Nama wajib diisi.');
+                isValid = false;
+            } else if (nama.length > 30) {
+                displayError('nama', 'Maksimum 30 karakter.');
+                isValid = false;
+            } else {
+                displayError('nama', '');
+            }
+
+            // --- 2. Validasi Email ---
+            const email = form.email.value.trim();
+            // Regex sederhana untuk format email (pemula)
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+            if (email === "") {
+                displayError('email', 'Email wajib diisi.');
+                isValid = false;
+            } else if (!emailRegex.test(email)) {
+                displayError('email', 'Format email tidak valid.');
+                isValid = false;
+            } else {
+                displayError('email', '');
+            }
+
+            // --- 3. Validasi Jam Keberangkatan (JJ.MM) ---
+            const jam = form.jam.value.trim();
+            // Regex: dua digit, titik, dua digit
+            const jamRegex = /^([0-1][0-9]|2[0-3])\.[0-5][0-9]$/; 
+            if (jam === "") {
+                displayError('jam', 'Jam wajib diisi.');
+                isValid = false;
+            } else if (!jamRegex.test(jam)) {
+                displayError('jam', 'Format jam harus JJ.MM (00.00-23.59).');
+                isValid = false;
+            } else {
+                displayError('jam', '');
+            }
+
+            // --- 4. Validasi Tujuan Keberangkatan ---
+            const tujuan = form.tujuan.value.trim();
+            if (tujuan === "") {
+                displayError('tujuan', 'Tujuan wajib diisi.');
+                isValid = false;
+            } else {
+                displayError('tujuan', '');
+            }
+
+            // --- 5. Validasi Jumlah Tiket ---
+            const tiket = parseInt(form.tiket.value);
+            if (isNaN(tiket)) {
+                displayError('tiket', 'Jumlah tiket wajib diisi dan harus angka.');
+                isValid = false;
+            } else if (tiket < 1 || tiket > 10) {
+                displayError('tiket', 'Tiket harus antara 1 sampai 10.');
+                isValid = false;
+            } else {
+                displayError('tiket', '');
+            }
+
+            // --- Output Hasil Akhir ---
+            if (isValid) {
+                // Jika semua valid, tampilkan data di bawah form
+                const output = `
+Nama Pelanggan: ${nama}
+Email: ${email}
+Jam Keberangkatan: ${jam}
+Tujuan Keberangkatan: ${tujuan}
+Jumlah Tiket: ${tiket}
+                `;
+                document.getElementById('data-output').textContent = output;
+                document.getElementById('hasil-validasi').style.display = 'block';
+                return false; // Mencegah form dikirim ke server (untuk demo)
+            } else {
+                // Jika ada error, kembalikan false agar form tidak ter-submit
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

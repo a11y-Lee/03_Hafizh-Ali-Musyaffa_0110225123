@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let buahs  = ["Mangga", "Apel", "Pisang", "Jeruk"];
+        let jumlah_buah = buahs.length;
+        let buah;
+        for ( buah in buahs ) {
+            console.log("buah"+ buahs[buah]);
+        }
+    </script>
+    <form action="" method="post">
+        <p>Pilih Buah Favorit</p>
+        <select name="buah" id="buah">
+            <option value="" disabled selected>Silahkan pilih </option>
+            <option value="mangga"> Buah Mangga</option>
+            <option value="apel">Buah Apel</option>
+            <option value="pisang">Buah Pisang</option>
+            <option value="jeruk">Buah Jeruk</option>
+        </select>
+    </form>
+</body>
+</html>

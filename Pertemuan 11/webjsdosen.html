@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let nilaisiswa = {
+            nim : "10116599",
+            nama : "Rizky Fauzan",
+            matakuliah : "UI/UX",
+            nilai : 85,
+            hasil : function() {
+                if (this.nilai >= 85) {
+                    return "A";
+                } else if (this.nilai >= 70) {
+                    return "B";
+                } else if (this.nilai >= 60) {
+                    return "C";
+                } else if (this.nilai >= 50) {
+                    return "D";
+                } else {
+                    return "E";
+                }
+            }
+        }
+        console.log("Nama: " + nilaisiswa.nama);
+        console.log("NIM: " + nilaisiswa.nim);
+        console.log("Mata Kuliah: " + nilaisiswa.matakuliah);
+        console.log("Nilai: " + nilaisiswa.nilai);
+        console.log("Hasil: " + nilaisiswa.hasil());
+
+        // latihan logic game
+        let hero = {
+            nama: "goku",
+            energi: 5000,
+            makan: function(porsi) {
+                this.energi += porsi;
+                console.log(`Selamat makan ${this.nama}, energi bertambah menjadi ${this.energi}`);
+            },
+            serang: function(pukul) {
+                this.energi -= pukul;
+                console.log(`Hati-hati ${this.nama}, energi berkurang menjadi ${this.energi}`);
+            },
+            lari: function(jarak) {
+                this.energi -= jarak;
+                console.log(`Jangan lari terlalu jauh ${this.nama}, energi berkurang menjadi ${this.energi}`);
+            }
+        }
+        console.log("Nama Hero: " + hero.nama);
+        hero.makan(500);
+        hero.serang(200);
+        hero.lari(300); 
+        let hero2 = {
+            nama: "vegeta",
+            energi: 3000,
+            makan: function(porsi) {
+                this.energi += porsi;
+                console.log(`Selamat makan ${this.nama}, energi bertambah menjadi ${this.energi}`);
+            },
+            serang: function(pukul) {
+                this.energi -= this.energi - 75;
+                console.log(`Hati-hati ${this.nama}, energi berkurang menjadi ${this.energi}`);
+            },
+            lari: function(jarak) {
+                this.energi -= jarak;
+                console.log(`Jangan lari terlalu jauh ${this.nama}, energi berkurang menjadi ${this.energi}`);
+            }
+        }
+        console.log("Nama Hero: " + hero2.nama);
+        hero2.makan(500);
+        hero2.serang(200);
+        hero2.lari(300); 
+
+        hero.makan(500);
+        hero2.serang(hero);
+        hero.lari(300);
+    </script>
+</head>
+<body>
+</body>
+</html>

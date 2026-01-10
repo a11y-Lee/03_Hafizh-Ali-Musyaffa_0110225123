@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="GambarPilihan">Pilih Gambar</label>
+        <select name="PilihGambar" id="gambarPilihan">
+        <option value="bison.jpeg">Bison</option>
+        <option value="kuda.jpeg">Kuda</option>
+        <option value="harimau1.jpg">Harimau</option>
+        <option value="kucing.jpg">kucing</option>
+        <option value="monyet.jpeg">Monyet</option>
+        </select>
+    </div>
+    <hr>
+    <div id="gambarArea">
+        <img  id="tampilGambar" src="" alt="" style="max-width: 300px; margin-top: 10px; border: 1px solid #ccc;">
+    </div>
+    <script>
+        
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const selectElement = document.getElementById('gambarPilihan');
+    const imageElement = document.getElementById('tampilGambar');
+
+    
+    function tampilkanGambar() {
+        
+        const namaFile = selectElement.value; 
+        
+        
+        const namaPilihan = selectElement.options[selectElement.selectedIndex].text;
+
+        
+        if (namaFile) {
+            
+            
+            imageElement.src = namaFile;
+            
+            
+            imageElement.alt = namaPilihan; 
+
+            // B. Tampilkan kotak alert
+            alert(`Ini gambar ${namaFile}`);
+            
+        } else {
+            
+            imageElement.src = "";
+            imageElement.alt = "Gambar tidak dipilih";
+        }
+    }
+
+    
+    selectElement.addEventListener('change', tampilkanGambar);
+
+    
+    tampilkanGambar(); 
+});
+    </script>
+</body>
+</html>
